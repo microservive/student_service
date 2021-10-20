@@ -12,6 +12,19 @@ resilience4j:
         maxRetryAttemps: 5
         waitDuration: 3s
 
+  ratelimiter:
+    instances:
+      # RateLimiter object used in RateLimitingService.basicExample()
+      basicExample:
+        limitForPeriod: 1
+        limitRefreshPeriod: 10s
+        timeoutDuration: 20s
+      # RateLimiter object used in RateLimitingService.timeoutExample()
+      timeoutExample:
+        limitForPeriod: 1
+        limitRefreshPeriod: 1s
+        timeoutDuration: 250ms
+
 eureka:
   client:
     register-with-eureka:
