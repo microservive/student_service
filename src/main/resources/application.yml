@@ -5,6 +5,12 @@ spring:
   application:
     name: USER-SERVICE
 
+resilience4j:
+  retry:
+    instances:
+      basic:
+        maxRetryAttemps: 5
+        waitDuration: 3s
 
 eureka:
   client:

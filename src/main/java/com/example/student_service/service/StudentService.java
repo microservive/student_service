@@ -5,6 +5,7 @@ import com.example.student_service.VO.Khoa;
 import com.example.student_service.VO.ResponseTemplateVO;
 import com.example.student_service.entity.Student;
 import com.example.student_service.repository.StudentReposity;
+import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -23,6 +24,7 @@ public class StudentService {
         return studentReposity.save(student);
     }
 
+    @Retry(name="basic")
     public ResponseTemplateVO getStudentWithDepartment(Long studentId) {
         ResponseTemplateVO vo = new ResponseTemplateVO();
         Student student = studentReposity.findById(studentId).get();
