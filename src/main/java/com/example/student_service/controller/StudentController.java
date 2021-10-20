@@ -15,9 +15,13 @@ public class StudentController
     @Autowired
     private StudentService studentService;
 
-    @PostMapping("/")
-    public Student saveUser(@RequestBody Student student ){
+    @GetMapping
+    public String helloWorld(){
+        return "Student service!";
+    }
 
+    @PostMapping
+    public Student saveUser(@RequestBody Student student ){
         return studentService.saveStudent(student);
     }
 

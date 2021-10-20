@@ -14,7 +14,8 @@ public class StudentService {
 
     @Autowired
     private StudentReposity studentReposity;
-    @Autowired
+
+    //@Autowired
     private RestTemplate restTemplate;
 
     public Student saveStudent(Student student) {
@@ -27,7 +28,7 @@ public class StudentService {
         Student student = studentReposity.findById(studentId).get();
         vo.setStudent(student);
         Khoa khoa =
-                restTemplate.getForObject("http://localhost:9001/khoa/"
+                restTemplate.getForObject("http://KHOA-SERVICE/khoa/"
                                 + student.getKhoaId(),
                         Khoa.class);
 
